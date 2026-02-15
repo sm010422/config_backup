@@ -62,33 +62,13 @@ return {
 
   -- animations
   {
-    "echasnovski/mini.animate",
+    "nvim-mini/mini.animate",
     event = "VeryLazy",
     opts = function(_, opts)
       opts.scroll = {
         enable = false,
       }
     end,
-  },
-
-  -- buffer line
-  {
-    "akinsho/bufferline.nvim",
-    event = "VeryLazy",
-    keys = {
-      -- { "<leader>bm", "<Cmd>BufferLineMoveNext<CR>" },
-      -- { "<leader>bn", "<Cmd>BufferLineMovePrev<CR>" },
-      { "qh", "<Cmd>BufferLineMovePrev<CR>" },
-      { "ql", "<Cmd>BufferLineMoveNext<CR>" },
-    },
-
-    opts = {
-      options = {
-        indicator = {
-          style = "underline",
-        },
-      },
-    },
   },
 
   -- filename
