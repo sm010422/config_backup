@@ -4,14 +4,15 @@ return {
     "danymat/neogen",
     keys = {
       {
-        "<leader>cc",
+        -- 기존 "<leader>cc" 대신 안 겹치는 키로 변경
+        "<leader>cn",
         function()
           require("neogen").generate({})
         end,
         desc = "Neogen Comment",
       },
     },
-    opts = { snippet_engine = "luasnip" },
+    opts = { snippet_engine = "nvim" },
   },
 
   -- Incremental rename
@@ -79,19 +80,18 @@ return {
   },
 
   {
-    "simrat39/symbols-outline.nvim",
-    keys = { { "<leader>cs", "<cmd>SymbolsOutline<cr>", desc = "Symbols Outline" } },
-    cmd = "SymbolsOutline",
-    opts = {
-      position = "right",
+      "saghen/blink.cmp",
+      dependencies = { "moyiz/blink-emoji.nvim" },
+      opts = {
+        sources = {
+          providers = {
+            emoji = {
+              module = "blink-emoji",
+              name = "Emoji",
+              score_offset = 15,
+            },
+          },
+        },
+      },
     },
-  },
-
-  {
-    "nvim-cmp",
-    dependencies = { "hrsh7th/cmp-emoji" },
-    opts = function(_, opts)
-      table.insert(opts.sources, { name = "emoji" })
-    end,
-  },
 }
